@@ -14,7 +14,6 @@ def markdown_to_text_decorator(func: Callable[..., str]) -> Callable[..., str]:
     return wrapper
 
 
-# Don't touch below this line
 def convert_md_to_txt(doc: str) -> str:
     lines = doc.split("\n")
     for i in range(len(lines)):
