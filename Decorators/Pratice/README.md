@@ -41,7 +41,7 @@ Doc2Doc needs a feature that can take care of encoding characters as escape sequ
 
 **Complete the replacer function**
 
-1. [ ] It takes as input two strings, `old` and `new`, and returns a function, `replace`.
+1. [x] It takes as input two strings, `old` and `new`, and returns a function, `replace`.
 2. [ ] `replace` takes as input function, `decorated_func`, and returns a `wrapper` function.
 3. [ ] `wrapper` takes as input a string `text`. It uses the `.replace()` string method to replace instances of `old` with `new` in the `text`. Then it returns the result of passing the modified `text` to the `decorated_func`.
 4. [ ] Use a series of calls to the `replacer` function to decorate `tag_pre`. Pass the following pairs of strings to these decorator calls to encode the escape sequences:

@@ -2,17 +2,21 @@ from collections.abc import Callable
 
 TextFunc = Callable[[str], str]
 
-# Don't touch above this line
-
 
 def replacer(old: str, new: str) -> Callable[[TextFunc], TextFunc]:
-    pass
+    def replace(decorated_func: TextFunc):
+        def wrapper(text: str):
+            return decorated_func(text.replace(old, new))
+
+        return wrapper
+
+    return replace
 
 
-# ?
-# ?
-# ?
-# ?
-# ?
+@replacer("&", "&amp;")
+@replacer("<", "&lt;")
+@replacer(">", "&gt;")
+@replacer('"', "&quot;")
+@replacer("'", "&#x27;")
 def tag_pre(text: str) -> str:
-    return f"<pre>{text}</pre>"  # Don't change the body of tag_pre
+    return f"<pre>{text}</pre>"
