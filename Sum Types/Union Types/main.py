@@ -11,11 +11,15 @@ class ParseError:
 
 
 # Don't touch above this line
-
-
 def parse_document(doc_name: str, content: str) -> Parsed | ParseError:
-    pass
+    if content == "":
+        return ParseError(doc_name, "no content")
+
+    return Parsed(doc_name, content)
 
 
 def display_parse_result(result: Parsed | ParseError) -> str:
-    pass
+    if isinstance(result, Parsed):
+        return f"Parsed {result.doc_name}: {len(result.text)} characters"
+    elif isinstance(result, ParseError):
+        return f"Failed {result.doc_name}: {result.err}"
