@@ -7,9 +7,11 @@ class MaybeParsed:
 
 class Parsed(MaybeParsed):
     def __init__(self, doc_name: str, text: str) -> None:
-        pass
+        self.doc_name = doc_name
+        self.text = text
 
 
 class ParseError(MaybeParsed):
     def __init__(self, doc_name: str, err: str) -> None:
-        pass
+        self.doc_name = doc_name
+        self.err = err
